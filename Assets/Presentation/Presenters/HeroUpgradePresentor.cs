@@ -9,11 +9,11 @@ namespace Presentation.Presenters
 {
     public class HeroUpgradePresenter : IDisposable, IStartable
     {
-        private readonly IPublisher<OnTryUpgrade> _publisher;
+        private readonly IAsyncPublisher<OnTryUpgrade> _publisher;
         private readonly IUpgradeView _upgradeView;
 
         [Inject]
-        public HeroUpgradePresenter(IUpgradeView upgradeView, IPublisher<OnTryUpgrade> publisher)
+        public HeroUpgradePresenter(IUpgradeView upgradeView, IAsyncPublisher<OnTryUpgrade> publisher)
         {
             _upgradeView = upgradeView;
             _publisher = publisher;

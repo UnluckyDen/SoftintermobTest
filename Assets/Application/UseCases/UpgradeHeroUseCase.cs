@@ -1,5 +1,7 @@
 using System;
+using System.Threading;
 using Application.Events;
+using Cysharp.Threading.Tasks;
 using Domain.Interfaces;
 using MessagePipe;
 using VContainer;
@@ -13,17 +15,17 @@ namespace Application.UseCases
         private readonly IDisposable _subscription;
 
         [Inject]
-        public UpgradeHeroUseCase(IUpgradable upgradable, ISubscriber<OnTryUpgrade> subscriber)
+        public UpgradeHeroUseCase(IUpgradable upgradable, IAsyncSubscriber<OnTryUpgrade> subscriber)
         {
             _heroModel = upgradable;
-            _subscription = subscriber.Subscribe(_ => Execute());
+            _subscription = subscriber.Subscribe((msg, ct) => Execute(ct));
         }
 
         public void Start()
         {
         }
 
-        public void Execute()
+        public async UniTask Execute(CancellationToken cancellationToken)
         {
             if (_heroModel.CanUpgrade.CurrentValue)
                 _heroModel.Upgrade();
