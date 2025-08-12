@@ -1,0 +1,84 @@
+.bg {
+    background-color: rgba(51, 51, 51, 0.71);
+}
+
+.window {
+    background-color: rgb(255, 255, 255);
+    margin-top: 100px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 100px;
+    border-bottom-left-radius: 90px;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+    border-top-width: 20px;
+    border-right-width: 20px;
+    border-bottom-width: 20px;
+    border-left-width: 20px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.label-top {
+    font-size: 72px;
+    -unity-text-align: upper-center;
+    -unity-font-style: normal;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    -unity-text-outline-width: 4px;
+    text-shadow: 200px 200px 0 rgba(0, 0, 0, 0.63);
+}
+
+.button {
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: rgb(55, 205, 204);
+    height: 80px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-left-color: rgb(48, 185, 184);
+    border-right-color: rgb(48, 185, 184);
+    border-top-color: rgb(48, 185, 184);
+    border-bottom-color: rgb(48, 185, 184);
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+}
+
+.button-text {
+    font-size: 266%;
+    color: rgb(249, 246, 238);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-text-outline-width: 0.5px;
+    -unity-font-style: bold;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.71);
+}
+
+.window-text {
+    font-size: 450%;
+    -unity-text-align: upper-center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.59);
+}
+
+.button:hover {
+    background-color: rgb(41, 164, 163);
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    transition-delay: 0s;
+}

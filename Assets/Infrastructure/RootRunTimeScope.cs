@@ -1,9 +1,11 @@
+using Application.Events;
+using Application.UseCases;
+using Domain.Interfaces;
 using Domain.Models.HeroModel;
-using Domain.UseCases;
 using VContainer;
 using VContainer.Unity;
 using MessagePipe;
-using Presentation.Presenters;
+using R3;
 
 namespace Infrastructure
 {
@@ -11,16 +13,15 @@ namespace Infrastructure
     {
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterMessagePipe();
+            var options = builder.RegisterMessagePipe();
+            builder.RegisterMessageBroker<OnTryUpgrade>(options);
             
-            builder.Register<HeroModel>(Lifetime.Singleton);
-            builder.Register<UpgradeHeroUseCase>(Lifetime.Scoped);
-
-            builder.Register(sp => 
-            {
-                var heroModel = sp.Resolve<HeroModel>();
-                return new HeroPresenter(heroModel.Level, heroModel.Strength);
-            }, Lifetime.Singleton);
+            builder.Register(sp => new HeroModel(1, 10), Lifetime.Singleton).As<HeroModel, IUpgradable>();
+            
+            builder.Register(sp =>  sp.Resolve<HeroModel>().Level, Lifetime.Singleton).Keyed("LevelStream");
+            builder.Register(sp =>  sp.Resolve<HeroModel>().Strength, Lifetime.Singleton).Keyed("StrengthStream");
+            
+            builder.RegisterEntryPoint<UpgradeHeroUseCase>();
         }
     }
 }

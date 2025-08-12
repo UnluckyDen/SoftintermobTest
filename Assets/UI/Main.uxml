@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Main.uss?fileID=7433441132597879392&amp;guid=507711438d4b64e42bf7319abc5f8311&amp;type=3#Main" />
+    <ui:VisualElement name="BackGround" class="bg" style="flex-grow: 1;">
+        <ui:VisualElement name="Window" class="window" style="flex-grow: 1;">
+            <ui:Label text="Hero upgrade" name="Label" class="label-top" />
+            <ui:VisualElement name="WindowContent" style="flex-grow: 1; align-self: center; align-content: auto; justify-content: flex-end; margin-bottom: 100px; flex-basis: 0%; width: 32%; margin-top: 100px;">
+                <ui:Label text="Hero level: $" name="LevelText" class="window-text" />
+                <ui:Label text="Hero strenght: $" name="StrengthText" class="window-text" />
+                <ui:Button text="Upgrade" name="UpgradeButton" class="button button-text" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

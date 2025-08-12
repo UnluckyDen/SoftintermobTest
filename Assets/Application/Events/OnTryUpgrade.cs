@@ -1,4 +1,4 @@
-namespace Domain.Events
+namespace Application.Events
 {
     public class OnTryUpgrade
     {
